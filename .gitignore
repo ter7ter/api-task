@@ -1,0 +1,39 @@
+# Composer dependencies
+/vendor/
+
+# Node.js/NPM/Yarn dependencies
+/node_modules/
+
+# Environment file. Contains sensitive keys and local settings.
+# Only the example file (env.example) should be in the repository.
+.env
+
+# Log files
+/storage/logs/*.log
+/logs/*.log
+
+# Compiled frontend assets (Vite, Laravel Mix)
+/public/build/
+/public/hot
+/public/storage
+
+# Framework cache and session files
+/storage/framework/
+/bootstrap/cache/*.php
+
+# User-uploaded files
+/storage/app/public/
+
+# IDE and system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# PHPUnit
+phpunit.result.cache
+
+# Homestead / Vagrant
+Homestead.yaml
+Homestead.json
+.vagrant/
