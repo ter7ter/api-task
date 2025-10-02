@@ -36,7 +36,11 @@ class TaskController extends Controller
      */
     public function show(string $id)
     {
-        $task = Task::findOrFail($id);
+        $task = Task::find($id);
+
+        if (!$task) {
+            return response()->json(['message' => 'Task not found'], 404);
+        }
 
         return response()->json($task);
     }
@@ -46,7 +50,11 @@ class TaskController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $task = Task::findOrFail($id);
+        $task = Task::find($id);
+
+        if (!$task) {
+            return response()->json(['message' => 'Task not found'], 404);
+        }
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -64,10 +72,14 @@ class TaskController extends Controller
      */
     public function destroy(string $id)
     {
-        $task = Task::findOrFail($id);
+        $task = Task::find($id);
+
+        if (!$task) {
+            return response()->json(['message' => 'Task not found'], 404);
+        }
 
         $task->delete();
 
-        return response()->json(['message' => 'Task deleted'], 204);
+        return response(null, 204);
     }
 }
